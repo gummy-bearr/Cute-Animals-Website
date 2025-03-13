@@ -1,0 +1,455 @@
+﻿<!DOCTYPE html>
+<html lang="sl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20 najbolj srčkanih živali na svetu</title>
+    <style>
+        /* Basic body styling */
+        body {
+            font-family: 'Brush Script MT', cursive;
+            background-color: #ffe2f1;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensures the body takes full height */
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #ffe2f1;
+            padding: 20px 0;
+        }
+
+            header h1 {
+                font-size: 2.5em;
+                color: #333;
+                margin: 0;
+            }
+
+        /* Navigation links styling */
+        nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* Gallery Section */
+        .galerija {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 40px;
+            padding: 20px;
+            justify-items: center;
+            flex: 1; /* Makes sure content fills available space */
+        }
+
+        /* Animal Card Styling */
+        .animal-card {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+            .animal-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            }
+
+            .animal-card img {
+                width: 100%;
+                height: 200px;
+                border-radius: 8px;
+                object-fit: cover;
+            }
+
+            /* okvircek imena za vsako zival */
+            .animal-card h3 {
+                background-color: #e8e8e8;
+                padding: 10px;
+                margin: 10px 0;
+                font-size: 1.6em;
+                color: #333;
+                border-radius: 4px;
+            }
+
+        /* Hidden Text (to be revealed on button click) */
+        .hidden-text {
+            display: none; /* Initially hide the extra text */
+            font-size: 14px;
+            color: #555;
+            margin-top: 10px;
+            padding: 0 10px;
+            line-height: 1.5;
+            margin-bottom: 20px; /* Added margin to increase space between text and button */
+        }
+
+        /* Button Styling */
+        .btn-read-more {
+            background-color: pink;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+            .btn-read-more:hover {
+                background-color: #ffa2c4;
+            }
+
+        /* Footer Styling */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+            footer p {
+                margin: 0;
+                font-size: 14px;
+            }
+        /* Stil za modal (okvirček) */
+        .modal {
+            display: none; /* Skrito privzeto */
+            position: fixed;
+            z-index: 1000;
+            left: 50%;
+            top: 10%; /* Postavi okvirček višje na stran */
+            transform: translate(-50%, 0%);
+            width: 50%;
+            background: white;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .modal-overlay {
+            display: none; /* Skrito privzeto */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+        }
+
+            .modal-header h2 {
+                margin: 0;
+            }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>20 najbolj srčkanih živali na svetu</h1>
+        <nav>
+    </header>
+
+    <main>
+        <section class="galerija">
+            <!-- Quokka Animal Card -->
+            <div class="animal-card">
+                <img src="https://i.pinimg.com/736x/84/a2/61/84a261157c9db61d157bad09e65ef9c4.jpg" alt="Quokka">
+                <h3>Quokka</h3>
+                <!-- Hidden Text -->
+                <div class="hidden-text">
+                    "Quokka", majhen vrečar, ki izvira iz Avstralije, pogosto velja za eno najsrečnejših živali na svetu zaradi svojega značilnega nasmeha podobnega obraznega izraza. Ta nočna bitja, ki prebivajo predvsem na majhnih otokih ob obali Zahodne Avstralije, so del družine kengurujev in valabijev. Znani so po svoji radovedni in prijazni naravi, ki se ljudem pogosto približajo brez strahu. Kvoke so rastlinojede živali, ki se prehranjujejo z različnimi travami in listi. Zaradi njihovega fotogeničnega obnašanja je postala priljubljena tema za fotografiranje divjih živali.
+                </div>
+                <!-- Button -->
+                <button class="btn-read-more" onclick="toggleText(this)">Preberi več</button>
+            </div>
+
+            <!-- Seal Animal Card -->
+            <div class="animal-card">
+                <img src="https://i.pinimg.com/736x/1f/43/3a/1f433a90149811739db9b303b3ec39d8.jpg" alt="Tjulenj">
+                <h3>Tjulenj</h3>
+                <!-- Hidden Text -->
+                <div class="hidden-text">
+                    Tjulnji so znani po svoji igrivi naravi in ​​prisrčnem videzu. S svojimi oblikovanimi telesi so spretni plavalci, ki jih pogosto vidimo brez težav drseti po vodi. Na kopnem so njihovi nerodni in nerodni gibi v ostrem nasprotju z njihovo vodno gracioznostjo. Tjulnji so družabne živali, ki jih običajno najdemo počivati ​​v velikih skupinah na obalah ali ledenih ploščah. Njihova vokalizacija, ki sega od lajanja do godrnjanja, prispeva k njihovi karizmatični osebnosti. Tjulnje najdemo v polarnem in zmernem podnebju.
+                </div>
+                <!-- Button -->
+                <button class="btn-read-more" onclick="toggleText(this)">Preberi več</button>
+            </div>
+
+            <!-- Slow Loris Animal Card -->
+            <div class="animal-card">
+                <img src="https://i.pinimg.com/736x/21/1a/77/211a773190c26ba9553df041f97b6e4c.jpg" alt="Slow Loris">
+                <h3>Počasni Loris</h3>
+                <!-- Hidden Text -->
+                <div class="hidden-text">
+                    "Počasni loris" je majhen primat, ki ga najdemo v jugovzhodni Aziji. Znan je po velikih, izrazitih očeh in počasnih, premišljenih gibih. Ta nočna bitja imajo okrogel obraz z značilnimi oznakami. Kljub ljubkemu videzu imajo počasni loriji strupen ugriz, kar je med sesalci redka lastnost. So drevesni, večino svojega življenja preživijo na drevesih in se prehranjujejo s sadjem, žuželkami in drobno favno. Počasni loriji se soočajo z grožnjami zaradi izgube habitata in nezakonite trgovine s hišnimi ljubljenčki.
+                </div>
+                <!-- Button -->
+                <button class="btn-read-more" onclick="toggleText(this)">Preberi več</button>
+            </div>
+
+            <!-- Gecko -->
+            <div class="animal-card">
+                <img src="https://i.pinimg.com/736x/72/5e/64/725e649712b5872b23cac56324b6d644.jpg" alt="Gecko">
+                <h3>Gecko</h3>
+                <!-- Hidden Text -->
+                <div class="hidden-text">
+                    "Gekoni" so majhni kuščarji, znani po svojih živahnih barvah in sposobnosti plezanja po gladkih površinah. Ta sposobnost je posledica mikroskopskih dlačic na njihovih stopalih, ki so čudež naravnega inženiringa. Gekone najdemo v toplih podnebjih po vsem svetu in jih prepoznamo po čivkajočih zvokih. Mnoge vrste imajo sposobnost regeneracije izgubljenih repov, obrambnega mehanizma pred plenilci. Gekoni so eni izmed najbolj priljubljenih plazilcev, ki jih imajo za hišne ljubljenčke, saj so ponavadi poslušni in jih je relativno enostavno skrbeti.
+                </div>
+                <!-- Button -->
+                <button class="btn-read-more" onclick="toggleText(this)">Preberi več</button>
+            </div>
+
+            <div class="animal-card">
+                <img src="https://i.pinimg.com/736x/19/5f/31/195f31fc3571762847e2e20615f56da5.jpg" alt="Miniaturni prašiček">
+                <h3>
+                    Miniaturni prašiček
+                </h3>
+                <!-- Hidden Text -->
+                <div class="hidden-text">
+                    "Miniaturni prašički", znani tudi kot čajni prašički, so postali priljubljeni kot hišni ljubljenčki zaradi svoje majhnosti in inteligentne narave. Ti prašiči so igrivi in ​​pogosto tvorijo močne vezi s svojimi lastniki. Kljub svojemu imenu lahko mali pujsi zrastejo večje od pričakovanega, 20 palcev (50 cm) v višino in 150 funtov (68 kilogramov) teže. Kot radovedne in pametne živali uživajo v raziskovalnih dejavnostih in mentalni stimulaciji. Lahko jih vzgajamo podobno kot pse, zaradi česar postanejo ljubljeni spremljevalci.
+                </div>
+                <!-- Button -->
+                <button class="btn-read-more" onclick="toggleText(this)">Preberi več</button>
+            </div>
+
+            <div class="animal-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Flying_Lemur_%26_Baby%2C_Bohol.jpg/1200px-Flying_Lemur_%26_Baby%2C_Bohol.jpg" alt="Leteči lemur">
+                <h3>
+                    Leteči lemur
+                </h3>
+                <!-- Hidden Text -->
+                <div class="hidden-text">
+                    "Flying lemur", znan tudi kot colugo, ni pravi lemur. Najdemo ga v jugovzhodni Aziji in je znan po svoji izredni sposobnosti drsenja, pri čemer uporablja veliko membrano, ki se razteza med njegovimi kraki, da prepotuje velike razdalje med drevesi. Ta nočna žival ima nežen obraz in velike oči ter se prehranjuje predvsem z listi, cvetovi in ​​plodovi. Večino svojega življenja preživi na drevesih, redko se spusti na tla. Leteči lemur ima sramežljivo, izmuzljivo naravo.
+                </div>
+                <!-- Button -->
+                <button class="btn-read-more" onclick="toggleText(this)">Preberi več</button>
+            </div>
+
+            <div class="animal-card">
+                <img src="https://i.pinimg.com/736x/d0/b8/51/d0b8514724b4c4fb779c2205d78f536a.jpg" alt="Lenivec">
+                <h3>
+                    Lenivec
+                </h3>
+                <!-- Hidden Text -->
+                <div class="hidden-text">
+                    Lenivci so doma v deževnih gozdovih Srednje in Južne Amerike. Ti sesalci, ki živijo na drevesih, večino svojega življenja preživijo z glavo navzdol na vejah, pri čemer jim pomagajo njihovi dolgi, močni kremplji. Lenivci imajo izjemno nizko stopnjo metabolizma, kar pomeni, da lahko traja dolgo časa, da se hrana pretvori v energijo. Ker ne želijo po nepotrebnem izgubljati energije, se premikajo počasi. Lenivci so čudovitega videza, z majhnim obrazom, velikimi očmi in nasmehom podobnimi usti.
+                </div>
+                <!-- Button -->
+                <button class="btn-read-more" onclick="toggleText(this)">Preberi več</button>
+            </div>
+
+            <div class="animal-card">
+                <img src="https://i.pinimg.com/736x/b8/cf/1a/b8cf1a8dee918248c776effd47f4da55.jpg" alt="Riba napihovalka">
+                <h3>
+                    Riba napihovalka
+                </h3>
+                <!-- Hidden Text -->
+                <div class="hidden-text">
+                    Ribe napihovalke imajo enega najbolj dramatičnih obrambnih mehanizmov med vsemi bitji v morju. Ko so ogroženi, se lahko napihnejo v obliko krogle, zaradi česar postanejo dva do trikrat večja od prvotne velikosti. Ta sposobnost izhaja iz njihovih elastičnih želodcev, ki jih lahko hitro napolnijo z vodo ali zrakom. Številne vrste rib napihovalk vsebujejo tudi tetrodotoksin, zaradi česar so zelo strupene. Vendar pa uživanje rib velja za poslastico v nekaterih kulinaričnih tradicijah, na primer na Japonskem. Napihovalke najdemo v tropskih in subtropskih oceanskih vodah.
+                </div>
+                <!-- Button -->
+                <button class="btn-read-more" onclick="toggleText(this)">Preberi več</button>
+            </div>
+
+            <div class="animal-card">
+                <img src="https://i.pinimg.com/736x/b9/9b/f9/b99bf92068a38c41a7e2d99bc852469d.jpg" alt="Panda">
+                <h3>
+                    Panda
+                </h3>
+                <!-- Hidden Text -->
+                <div class="hidden-text">
+                    Ogromna panda, ki izvira iz Kitajske, je nezmotljiva zaradi svojega značilnega črno-belega kožuha. Znanstveniki verjamejo, da te oznake pomagajo pandi pri kamuflaži v snežnem in sončnem okolju. Njihova prehrana je predvsem bambus, kar je odraz njihovih posebnih habitatnih potreb. Pande morajo vsak dan zaužiti veliko količino hrane, od 70 do 100 funtov (32 do 45 kg) bambusa, da dobijo vsa hranila. Ti medvedi so simbol globalnih prizadevanj za ohranitev zaradi svojega statusa ranljive vrste.
+                </div>
+                <!-- Button -->
+                <button class="btn-read-more" onclick="toggleText(this)">Preberi več</button>
+            </div>
+
+            <div class="animal-card">
+                <img src="https://i.pinimg.com/736x/1f/ea/f3/1feaf3250664c9e4e0a58e87f0e92430.jpg" alt="Koala">
+                <h3>
+                    Koala
+                </h3>
+                <!-- Hidden Text -->
+                <div class="hidden-text">
+                    Koalo, ki je avtohtona v Avstraliji, jo pogosto primerjajo s plišasto igračo s svojimi puhastimi ušesi in izrazitim nosom. Čeprav jih včasih imenujejo koala medvedi, sploh niso v sorodu z medvedi. So drevesni vrečarji, ki se prehranjujejo predvsem z evkaliptusom. Čeprav je evkaliptus strupen za večino živali, imajo koale poseben organ za prebavo vlaknin, imenovan slepo črevo, ki pomaga pri razstrupljanju kemikalij v listih. Znano je, da koale spijo 18 ur na dan.
+                </div>
+                <!-- Button -->
+                <button class="btn-read-more" onclick="toggleText(this)">Preberi več</button>
+            </div>
+
+            <div class="animal-card">
+                <img src="https://i.pinimg.com/736x/d0/be/85/d0be8543253f63c1ac4b860e6a0bc320.jpg" alt="Lisica Fenek">
+                <h3> Lisica Fenek </h3>
+                <!-- Hidden Text -->
+                <div class="hidden-text">
+                    Lisica "fenek", ki izvira iz puščave Sahara, je najmanjša lisica na svetu. Zanj so značilna nesorazmerno velika ušesa, ki mu pomagajo prisluškovati plenu pod zemljo in pomagajo pri termoregulaciji. Lisica je čez dan zakopana v pesek, da bi se izognila ekstremni vročini, in se v mraku pojavi iz brloga, da bi poiskala hrano. Hranijo se z žuželkami, glodavci, polži, kuščarji, rastlinami, sadjem, koreninami in jajci.
+                </div>
+                <!-- Button -->
+                <button class="btn-read-more" onclick="toggleText(this)">Preberi več</button>
+            </div>
+
+            <div class="animal-card">
+                <img src="https://i.pinimg.com/736x/54/ce/40/54ce4031b1ccd6bf2a2251caf52fcb89.jpg" alt="Jež">
+                <h3>
+                    Jež
+                </h3>
+                <!-- Hidden Text -->
+                <div class="hidden-text">
+                    Ježi so znani po svoji bodičasti, bodičasti dlaki. Ti majhni sesalci, ki jih najdemo v Evropi, Aziji in Afriki, se zvijejo v tesno kroglo kot obrambni mehanizem. Z zvijanjem in privijanjem glave, repa in nog zaščitijo ranljive dele telesa. Ježi najdejo hrano tako, da se prebijajo skozi »žive meje« in jedo žuželke, črve, jajca, polže, miši, žabe in kače. Imajo močan voh in zaradi ukrivljenih krempljev so izjemni kopači.
+                </div>
+                <!-- Button -->
+                <button class="btn-read-more" onclick="toggleText(this)">Preberi več</button>
+            </div>
+
+            <div class="animal-card">
+                <img src="https://i.pinimg.com/736x/72/87/08/728708502b09d8e22873f07df1f7d223.jpg" alt="Pingvin">
+                <h3>
+                    Pingvin
+                </h3>
+                <!-- Hidden Text -->
+                <div class="hidden-text">
+                    Pingvini so neleteče ptice z impresivnimi vodnimi prilagoditvami. Njihova krila se uporabljajo kot plavuti, da jih brez truda poganjajo skozi vodo. Gentoo pingvini, najhitrejše plavajoče ptice na svetu, lahko pod vodo plavajo s hitrostjo do 36 km/h. Z debelimi plastmi perja in dodatnimi zalogami telesne maščobe lahko pingvini prenesejo nekatera najbolj ostra podnebja na svetu in najhladnejše oceane. Živijo predvsem v različnih podnebjih na južni polobli in so najbolj skoncentrirani na Antarktiki.
+                </div>
+                <!-- Button -->
+                <button class="btn-read-more" onclick="toggleText(this)">Preberi več</button>
+            </div>
+
+            <div class="animal-card">
+                <img src="https://i.pinimg.com/736x/b2/0c/9d/b20c9d581ebb79ca530b9e8ebb5fe6e2.jpg" alt="Rdeča panda">
+                <h3>
+                    Rdeča panda
+                </h3>
+                <!-- Hidden Text -->
+                <div class="hidden-text">
+                    Rdečo pando najdemo v gorskih predelih vzhodne Himalaje in jugozahodne Kitajske. Njegovo ime bi vas morda navedlo na misel, da je njegov najbližji sorodnik orjaški panda, vendar so najbolj sorodni rakunom. S svojim rdečkasto rjavim kožuhom in košatim obročastim repom je ta drevesni sesalec spreten pri krmarjenju po visoki krošnji, kjer se prehranjuje predvsem z bambusom. Rdeča panda je ogrožena vrsta, ki ji grozi izguba in razdrobljenost habitata.
+                </div>
+                <!-- Button -->
+                <button class="btn-read-more" onclick="toggleText(this)">Preberi več</button>
+            </div>
+
+            <div class="animal-card">
+                <img src="https://i.pinimg.com/736x/dd/83/e9/dd83e9e38b29f0f88b90961899c1baba.jpg" alt="Zajec">
+                <h3> Zajec </h3>
+                <!-- Hidden Text -->
+                <div class="hidden-text">
+                    Zajce najdemo v različnih delih sveta. Znani so po dolgih ušesih, mehkem kožuhu in reproduktivni učinkovitosti. Kot bi lahko pričakovali, zajčja ušesa omogočajo slišanje na velike razdalje. Njihova ušesa se lahko tudi obrnejo za 180 stopinj, tako da lahko poslušajo v katero koli smer. Ker so zajci plen, njihova sposobnost, da se izognejo plenilcem, izhaja iz njihovega odličnega sluha in njihove hitrosti.
+                </div>
+                <!-- Button -->
+                <button class="btn-read-more" onclick="toggleText(this)">Preberi več</button>
+            </div>
+
+            <div class="animal-card">
+                <img src="https://i.pinimg.com/736x/37/11/59/371159bf43e376358e536128b3f1e85d.jpg" alt="Činčila">
+                <h3>
+                    Činčila
+                </h3>
+                <!-- Hidden Text -->
+                <div class="hidden-text">
+                    Činčile, ki izvirajo iz gorovja Andov, imajo nekaj najgostejših krznenih plaščev v živalskem kraljestvu. Imajo do 60 las na folikel, za razliko od ljudi, ki imajo običajno samo en las na folikel. Njihovo gosto krzno jim omogoča, da ostanejo topli na visoki nadmorski višini in v mrzlem podnebju. Kadar so v nevarnosti, lahko činčile izpustijo del svojega kožuha, kar imenujemo "zdrs krzna", da pobegnejo pred plenilcem. Na žalost je njihov kožuh tudi razlog, da so ogroženi, saj so jih ljudje lovili.
+                </div>
+                <!-- Button -->
+                <button class="btn-read-more" onclick="toggleText(this)">Preberi več</button>
+            </div>
+
+            <div class="animal-card">
+                <img src="https://i.pinimg.com/736x/dd/e6/6b/dde66b80b4bb26fe3566e919f246555c.jpg" alt="Morska vidra">
+                <h3>
+                    Morska vidra
+                </h3>
+                <!-- Hidden Text -->
+                <div class="hidden-text">
+                    Morska vidra je vodni sesalec, ki ga najdemo ob obalah Tihega oceana. Morske vidre, znane po svojih požrešnih apetitih, vsak dan pojedo 25 % svoje telesne teže hrane. Njihova prehrana vključuje morske ježke, rake, školjke in školjke, za katere je znano, da jih razpočijo s kamnom in pojedo, medtem ko lebdijo v vodi. Morske vidre imajo najdebelejšo dlako od vseh živali, saj vsebuje od 600.000 do 1.000.000 lasnih mešičkov na kvadratni palec.
+                </div>
+                <!-- Button -->
+                <button class="btn-read-more" onclick="toggleText(this)">Preberi več</button>
+            </div>
+
+            <div class="animal-card">
+                <img src="https://i.pinimg.com/736x/6c/c9/9f/6cc99fa11873451f5b42344416f82d0d.jpg" alt="Mali marmozet">
+                <h3>
+                    Mali marmozet
+                </h3>
+                <!-- Hidden Text -->
+                <div class="hidden-text">
+                    "Pygmy Marmoset" je najmanjša opica na svetu, ki tehta okoli 100 gramov in ne meri več kot 6 palcev v dolžino telesa. Ta manjši primat, ki izvira iz deževnih gozdov Južne Amerike, ima okoli obraza levje podobno grivo in zapletene vzorce na kožuhu, ki se razlikujejo od odtenkov rjave do zlate. Njihova prehrana je v glavnem sestavljena iz drevesne gume, do katere pridejo z grizljanjem lukenj v lubju s svojim posebnim zobovjem.
+                </div>
+                <!-- Button -->
+                <button class="btn-read-more" onclick="toggleText(this)">Preberi več</button>
+            </div>
+
+            <div class="animal-card">
+                <img src="https://i.pinimg.com/736x/bf/a4/43/bfa4439192eeb015acc7af367cdcfc05.jpg" alt="Morski prašiček">
+                <h3>
+                    Morski prašiček
+                </h3>
+                <!-- Hidden Text -->
+                <div class="hidden-text">
+                    Morski prašički izvirajo iz Andov, vendar jih danes pogosto redijo kot hišne ljubljenčke. Znani so po svojih vokalizacijah in družabni naravi. Morski prašički so bili pomembni v znanstvenih raziskavah in kot vir hrane v nekaterih kulturah. Čeprav samce morskih prašičkov imenujemo merjasci, samice pa svinje, so ti glodavci. Njihovo ime izvira iz prašičjih cvilečih zvokov, ki jih lahko oddajajo.
+                </div>
+                <!-- Button -->
+                <button class="btn-read-more" onclick="toggleText(this)">Preberi več</button>
+            </div>
+
+            <div class="animal-card">
+                <img src="https://i.pinimg.com/736x/26/a4/28/26a4281e86de45ea3cd99428cd9dafe7.jpg" alt="Sladkorni padalec">
+                <h3>Sladkorni padalec</h3>
+
+                <!-- Skriti tekst -->
+                <div class="hidden-text">
+                    "Sugar Glider" je majhen vrečar, ki izvira iz Avstralije, Papue Nove Gvineje in Indonezije. Imajo velike oči in dolg, oprijemljiv rep. Kot že ime pove, ima sladkorno jadralno letalo par padalu podobnih membran, znanih kot patagija, ki se raztezajo od prednjih do zadnjih nog. To jim omogoča, da drsijo z drevesa na drevo, da pridejo do hrane in se izognejo plenilcem. Prehrano dopolnjujejo tudi s cvetnim prahom, nektarjem, žuželkami in majhnimi vretenčarji.
+                </div>
+
+                <button class="btn-read-more" onclick="toggleText(this)">Preberi več</button>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <p>&copy; 2025 Spletna stran srčkanih živali | Narejeno z ljubeznijo do živali | Avtorica: Sara Čerpnjak</p>
+    </footer>
+
+
+    <script>
+        // JavaScript function to toggle visibility of the hidden text
+        function toggleText(button) {
+            var hiddenText = button.previousElementSibling; // Get the previous sibling (the hidden text div)
+            if (hiddenText.style.display === "none" || hiddenText.style.display === "") {
+                hiddenText.style.display = "block"; // Show the text
+                button.textContent = "Preberi manj"; // Change button text
+            } else {
+                hiddenText.style.display = "none"; // Hide the text
+                button.textContent = "Preberi več"; // Reset button text
+            }
+        }
+    </script>
+
+
+</body>
+</html>
